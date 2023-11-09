@@ -299,6 +299,22 @@ namespace ClosedXML.Tests.Excel.Saving
         }
 
         [Test]
+        public void CannotAddWorksheetPictureWhenHeaderContainsPicture()
+        {
+            using (var loadStream = TestHelper.GetStreamFromResource(TestHelper.GetResourcePath(@"Other\Pictures\ImageInPrintHeader.xlsx")))
+            using (var ms = new MemoryStream())
+            using (var wb = new XLWorkbook(loadStream))
+            using (var imageStream = Assembly.GetAssembly(typeof(ClosedXML.Examples.BasicTable)).GetManifestResourceStream("ClosedXML.Examples.Resources.SampleImage.jpg"))
+            {
+                wb.TryGetWorksheet("Sheet1", out IXLWorksheet sheet);
+
+                sheet.AddPicture(imageStream);
+
+                wb.SaveAs(ms);
+            }
+        }
+
+        [Test]
         public void CanSaveFileWithPictureAndComment()
         {
             using (var ms = new MemoryStream())
