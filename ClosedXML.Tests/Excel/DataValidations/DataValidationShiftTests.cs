@@ -38,6 +38,7 @@ namespace ClosedXML.Tests.Excel.DataValidations
             using (var wb = new XLWorkbook())
             {
                 var ws = wb.AddWorksheet("DataValidationShift");
+                ws.SelectedRanges.Add(ws.Range("G6:G7"));
                 ws.Range("A1:A1").CreateDataValidation().WholeNumber.Between(0, 1);
                 ws.Range("B1:B2").CreateDataValidation().WholeNumber.Between(0, 1);
                 ws.Range("C1:C3").CreateDataValidation().WholeNumber.Between(0, 1);
@@ -62,7 +63,7 @@ namespace ClosedXML.Tests.Excel.DataValidations
         {
             using (var wb = new XLWorkbook())
             {
-                var ws = wb.AddWorksheet("DataValidationShift");
+                var ws = wb.AddWorksheet("DataValidationShift");             
                 ws.Range("A1:A1").CreateDataValidation().WholeNumber.Between(0, 1);
                 ws.Range("A2:B2").CreateDataValidation().WholeNumber.Between(0, 1);
                 ws.Range("A3:C3").CreateDataValidation().WholeNumber.Between(0, 1);
@@ -87,6 +88,7 @@ namespace ClosedXML.Tests.Excel.DataValidations
             using (var wb = new XLWorkbook())
             {
                 var ws = wb.AddWorksheet("DataValidationShift");
+                ws.SelectedRanges.Add(ws.Range("G3:G4"));
                 ws.Range("A1:A1").CreateDataValidation().WholeNumber.Between(0, 1);
                 ws.Range("B1:B2").CreateDataValidation().WholeNumber.Between(0, 1);
                 ws.Range("C1:C3").CreateDataValidation().WholeNumber.Between(0, 1);
